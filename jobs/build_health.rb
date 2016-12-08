@@ -120,13 +120,21 @@ def get_jenkins_build_health(build_id)
   builds_with_status = builds.select { |build| !build['result'].nil? }
   successful_count = builds_with_status.count { |build| build['result'] == 'SUCCESS' }
   latest_build = builds_with_status.first
+
+  url_latest_build = latest_build['url'] + 'testReport/api/json'
+  latest_build_info = get_url URI.encode(url_latest_build), auth
+  latest_failed = latest_build_info['failCount']
+  latest_total = latest_build_info['totalCount']
+
   return {
     name: latest_build['fullDisplayName'],
     status: latest_build['result'] == 'SUCCESS' ? SUCCESS : FAILED,
     duration: latest_build['duration'] / 1000,
     link: latest_build['url'],
     health: calculate_health(successful_count, builds_with_status.count),
-    time: latest_build['timestamp']
+    time: latest_build['timestamp'],
+    testfailed: latest_failed,
+    totaltest: latest_total
   }
 end
 
