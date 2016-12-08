@@ -1,12 +1,13 @@
 {
-  "bambooBaseUrl": "https://ci.openmrs.org",
-  "goBaseUrl": "https://build.go.cd",
-  "teamCityBaseUrl": "https://teamcity.jetbrains.com",
-  "jenkinsBaseUrl": "https://builds.apache.org",
+  "jenkinsBaseUrl": "https://engineering.paypalcorp.com/jenkins/user/stwen/my-views/view/FI-Compartmentalized-Regression",
   "builds": [
-    {"id": "sinatra/sinatra", "server": "Travis"},
-    {"id": "IntelliJIdeaCe_CommunityTestsLinuxJava8", "server": "TeamCity"},
-    {"id": "HBase-1.1-JDK8", "server": "Jenkins"},
-    {"id": "EBOLA-EEM", "server": "Bamboo"}
+    {"id": "FI-Regression-Bank", "server": "Jenkins"},
+    {"id": "FI-Regression-Card", "server": "Jenkins"},
+    {"id": "FI-Regression-CreditTab", "server": "Jenkins"},
+    {"id": "FI-Regression-Preference", "server": "Jenkins"},
+    {"id": "FI-Regression-Balance", "server": "Jenkins"},
+    {"id": "FI-Regression-Bank-IDS", "server": "Jenkins"},
+    {"id": "FI-Regression-Card-IDS", "server": "Jenkins"},
+    {"id": "FI-Regression-Wallet", "server": "Jenkins"}
   ]
 }
